@@ -16,4 +16,36 @@ class AppStyles {
       fontFamily: AppFontFamily.poppins,
     );
   }
+
+  static whiteHeadLineLargeSemiBold() {
+    return TextStyle(
+      color: AppColors.white,
+      fontSize: AppFontSize.headLineMedium,
+      fontFamily: AppFontFamily.poppins,
+      fontWeight: FontWeight.w600,
+    );
+  }
+
+  static lightGreyText() {
+    return TextStyle(
+      color: AppColors.lightGrey,
+      fontSize: AppFontSize.large,
+      fontFamily: AppFontFamily.poppins,
+    );
+  }
+
+  static greyTitleLarge() {
+    return TextStyle(
+      color: AppColors.darkGrey,
+      fontSize: AppFontSize.titleLarge,
+      fontFamily: AppFontFamily.poppins,
+    );
+  }
+
+  static yellowTextStyle() {
+    return TextStyle(
+        color: AppColors.darkYellow.withOpacity(0.8),
+        fontFamily: AppFontFamily.poppins,
+        fontSize: AppFontSize.titleSmall);
+  }
 }

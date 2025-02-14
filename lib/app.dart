@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/common/styles/index.dart';
 import 'package:portfolio/common/utils/index.dart';
 import 'package:portfolio/ui/mixin/index.dart';
+import 'package:portfolio/ui/screens/index.dart';
 
 class MainApp extends BasePage {
   const MainApp({super.key});
@@ -85,9 +86,21 @@ class MainAppState extends BaseState<MainApp> with BasicPage {
       },
       child: SingleChildScrollView(
         controller: _scrollController,
-        child: const Column(
+        child: Column(
           children: [
-            SizedBox.shrink(),
+            // Home Section
+            Container(
+              key: _homeKey,
+              margin: EdgeInsets.only(top: isSmallScreen ? AppPadding.standardPadding / 2 : 0),
+              padding: const EdgeInsets.symmetric(horizontal: AppPadding.defaultPadding),
+              height: isSmallScreen ? screenHeight : screenHeight - 80,
+              child: const Center(
+                child: HomeSection(),
+              ),
+            ),
+            const SizedBox(height: AppSpacing.extraSpacing),
+            if (screenHeight < 600) const SizedBox(height: AppSpacing.extraSpacing),
+
           ],
         ),
       ),
@@ -149,8 +162,6 @@ class MainAppState extends BaseState<MainApp> with BasicPage {
           onPressed: () {
             setState(() {
               activeIndex = index;
-              print('Active Index: $activeIndex');
-
               switch (activeIndex) {
                 case 0:
                   _scrollToSection(_homeKey);
