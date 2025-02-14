@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/app.dart';
+
+import 'package:portfolio/common/styles/index.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const StartApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class StartApp extends StatelessWidget {
+  const StartApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Pavan Sonawane',
+      home: const MainApp(),
+      theme: AppThemes.appTheme,
     );
   }
 }
