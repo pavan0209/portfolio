@@ -1,6 +1,7 @@
 class AppImageAssets {
   static String appLogo = 'assets/images/app_logo.png';
   static String pavanImage = 'assets/images/pavan.png';
+  static String userAvatarMac= 'assets/images/user_avatar_mac.png';
 
   static String flutter = 'assets/images/skills/flutter.png';
   static String java = 'assets/images/skills/java.png';

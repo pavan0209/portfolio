@@ -101,6 +101,29 @@ class MainAppState extends BaseState<MainApp> with BasicPage {
             const SizedBox(height: AppSpacing.extraSpacing),
             if (screenHeight < 600) const SizedBox(height: AppSpacing.extraSpacing),
 
+            // About Me Section
+            Wrap(
+              key: _aboutKey,
+              spacing: 100,
+              runSpacing: 50,
+              alignment: WrapAlignment.center,
+              crossAxisAlignment: WrapCrossAlignment.start,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: AppPadding.defaultPadding),
+                  child: AboutSection(),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: AppPadding.defaultPadding),
+                  decoration: BoxDecoration(
+                      color: AppColors.darkGrey.withOpacity(0.6), borderRadius: BorderRadius.circular(20)),
+                  height: screenWidth < 1000 ? 300 : 600,
+                  width: screenWidth < 1000 ? 300 : 400,
+                  child: Image.asset(AppImageAssets.userAvatarMac),
+                ),
+              ],
+            ),
+
           ],
         ),
       ),

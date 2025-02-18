@@ -34,6 +34,14 @@ class AppStyles {
     );
   }
 
+  static greyTitleSmall() {
+    return TextStyle(
+      color: AppColors.darkGrey,
+      fontSize: AppFontSize.titleSmall,
+      fontFamily: AppFontFamily.poppins,
+    );
+  }
+
   static greyTitleLarge() {
     return TextStyle(
       color: AppColors.darkGrey,
