@@ -18,6 +18,11 @@ class AppImageAssets {
   static String github = 'assets/images/platforms/github.png';
   static String gitlab = 'assets/images/platforms/gitlab.png';
 
+  static String instagram = 'assets/images/social/instagram.png';
+  static String whatsapp = 'assets/images/social/whatsapp.png';
+  static String snapchat = 'assets/images/social/snapchat.png';
+  static String facebook = 'assets/images/social/facebook.png';
+
   static String portfolioHome = 'assets/images/portfolio_project/home.png';
   static String portfolioAbout = 'assets/images/portfolio_project/about.png';
   static String portfolioProjects = 'assets/images/portfolio_project/projects.png';

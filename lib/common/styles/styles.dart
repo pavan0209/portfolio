@@ -74,4 +74,13 @@ class AppStyles {
       fontSize: AppFontSize.titleSmall,
     );
   }
+
+  static redText() {
+    return TextStyle(
+      color: AppColors.red,
+      fontFamily: AppFontFamily.poppins,
+      fontSize: AppFontSize.large,
+      fontWeight: FontWeight.w500,
+    );
+  }
 }

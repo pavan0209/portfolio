@@ -131,6 +131,17 @@ class MainAppState extends BaseState<MainApp> with BasicPage {
               padding: EdgeInsets.symmetric(horizontal: screenWidth < 1000 ? AppPadding.defaultPadding : AppPadding.defaultPadding),
               child: const ProjectsSection(),
             ),
+
+            // Contact Section
+            const SizedBox(height: AppSpacing.extraSpacing * 2),
+            Container(
+              key: _contactKey,
+              child: const ContactSection(),
+            ),
+            const SizedBox(height: AppSpacing.extraSpacing * 2),
+
+             // Copyright section
+            const FooterSection(),
           ],
         ),
       ),
