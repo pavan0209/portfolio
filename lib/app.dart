@@ -123,7 +123,14 @@ class MainAppState extends BaseState<MainApp> with BasicPage {
                 ),
               ],
             ),
-
+          
+            // Projects Section
+            const SizedBox(height: AppSpacing.defaultSpacing),
+            Padding(
+              key: _projectKey,
+              padding: EdgeInsets.symmetric(horizontal: screenWidth < 1000 ? AppPadding.defaultPadding : AppPadding.defaultPadding),
+              child: const ProjectsSection(),
+            ),
           ],
         ),
       ),

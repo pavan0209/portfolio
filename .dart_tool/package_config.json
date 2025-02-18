@@ -128,6 +128,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "smooth_page_indicator",
+      "rootUri": "file:///home/dell/.pub-cache/hosted/pub.dev/smooth_page_indicator-1.2.0+3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "source_span",
       "rootUri": "file:///home/dell/.pub-cache/hosted/pub.dev/source_span-1.10.0",
       "packageUri": "lib/",
@@ -236,7 +242,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2025-02-14T09:44:45.594923Z",
+  "generated": "2025-02-18T09:21:37.150412Z",
   "generator": "pub",
   "generatorVersion": "3.5.4",
   "flutterRoot": "file:///home/dell/snap/flutter/common/flutter",

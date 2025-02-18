@@ -17,6 +17,15 @@ class AppStyles {
     );
   }
 
+  static whiteTextLargeSemiBold() {
+    return TextStyle(
+      color: AppColors.white,
+      fontSize: AppFontSize.titleMedium,
+      fontWeight: FontWeight.w600,
+      fontFamily: AppFontFamily.poppins,
+    );
+  }
+
   static whiteHeadLineLargeSemiBold() {
     return TextStyle(
       color: AppColors.white,
@@ -50,10 +59,19 @@ class AppStyles {
     );
   }
 
+  static yellowText() {
+    return TextStyle(
+      color: AppColors.darkYellow.withOpacity(0.8),
+      fontFamily: AppFontFamily.poppins,
+      fontSize: AppFontSize.large,
+    );
+  }
+
   static yellowTextStyle() {
     return TextStyle(
-        color: AppColors.darkYellow.withOpacity(0.8),
-        fontFamily: AppFontFamily.poppins,
-        fontSize: AppFontSize.titleSmall);
+      color: AppColors.darkYellow.withOpacity(0.8),
+      fontFamily: AppFontFamily.poppins,
+      fontSize: AppFontSize.titleSmall,
+    );
   }
 }
