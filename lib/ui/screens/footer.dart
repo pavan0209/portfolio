@@ -25,7 +25,7 @@ class FooterSectionState extends State<FooterSection> {
             children: [
               Text(
                 'Made with',
-                style: AppStyles.whiteTextLargeSemiBold().copyWith(color: AppColors.darkYellow.withOpacity(0.6)),
+                style: AppStyles.whiteTextLargeSemiBold().copyWith(color: AppColors.darkYellow.withOpacity(0.7)),
               ),
               const SizedBox(width: AppSpacing.smallSpacing),
               Icon(
@@ -36,7 +36,7 @@ class FooterSectionState extends State<FooterSection> {
               const SizedBox(width: AppSpacing.smallSpacing),
               Text(
                 'and built with Flutter',
-                style: AppStyles.whiteTextLargeSemiBold().copyWith(color: AppColors.darkYellow.withOpacity(0.6)),
+                style: AppStyles.whiteTextLargeSemiBold().copyWith(color: AppColors.darkYellow.withOpacity(0.7)),
               ),
             ],
           ),
