@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:portfolio/common/styles/index.dart';
 import 'package:portfolio/common/utils/index.dart';
+import 'package:portfolio/provider/index.dart';
 import 'package:portfolio/ui/mixin/index.dart';
 import 'package:portfolio/ui/screens/index.dart';
 
@@ -13,9 +15,6 @@ class MainApp extends BasePage {
 }
 
 class MainAppState extends BaseState<MainApp> with BasicPage {
-  int? activeIndex = 0;
-  int? hoveredMenuIndex;
-
   final ScrollController _scrollController = ScrollController();
   final GlobalKey _homeKey = GlobalKey();
   final GlobalKey _aboutKey = GlobalKey();
@@ -47,10 +46,9 @@ class MainAppState extends BaseState<MainApp> with BasicPage {
 
     for (int i = sectionPositions.length - 1; i >= 0; i--) {
       if (offset >= sectionPositions[i] - MediaQuery.of(context).size.height * 0.3) {
-        if (activeIndex != i) {
-          setState(() {
-            activeIndex = i;
-          });
+        final appProvider = Provider.of<AppProvider>(context, listen: false);
+        if (appProvider.activeIndex != i) {
+          appProvider.setActiveIndex(i);
         }
         break;
       }
@@ -123,12 +121,13 @@ class MainAppState extends BaseState<MainApp> with BasicPage {
                 ),
               ],
             ),
-          
+
             // Projects Section
-            const SizedBox(height: AppSpacing.defaultSpacing),
+            const SizedBox(height: AppSpacing.extraSpacing * 2),
             Padding(
               key: _projectKey,
-              padding: EdgeInsets.symmetric(horizontal: screenWidth < 1000 ? AppPadding.defaultPadding : AppPadding.defaultPadding),
+              padding: EdgeInsets.symmetric(
+                  horizontal: screenWidth < 1000 ? AppPadding.defaultPadding : AppPadding.defaultPadding),
               child: const ProjectsSection(),
             ),
 
@@ -140,7 +139,7 @@ class MainAppState extends BaseState<MainApp> with BasicPage {
             ),
             const SizedBox(height: AppSpacing.extraSpacing * 2),
 
-             // Copyright section
+            // Copyright section
             const FooterSection(),
           ],
         ),
@@ -183,41 +182,36 @@ class MainAppState extends BaseState<MainApp> with BasicPage {
   }
 
   Widget _buildMenuItem(String title, BuildContext context, int index) {
-    bool isHovered = hoveredMenuIndex == index;
+    final appProvider = Provider.of<AppProvider>(context);
+    bool isHovered = appProvider.hoveredMenuIndex == index;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: AppPadding.smallPadding),
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         onEnter: (event) {
-          setState(() {
-            hoveredMenuIndex = index;
-          });
+          appProvider.setHoveredMenuIndex(index);
         },
         onExit: (event) {
-          setState(() {
-            hoveredMenuIndex = null;
-          });
+          appProvider.setHoveredMenuIndex(-1);
         },
         child: OutlinedButton(
           onPressed: () {
-            setState(() {
-              activeIndex = index;
-              switch (activeIndex) {
-                case 0:
-                  _scrollToSection(_homeKey);
-                case 1:
-                  _scrollToSection(_aboutKey);
-                case 2:
-                  _scrollToSection(_projectKey);
-                case 3:
-                  _scrollToSection(_contactKey);
-              }
-            });
+            appProvider.setActiveIndex(index);
+            switch (appProvider.activeIndex) {
+              case 0:
+                _scrollToSection(_homeKey);
+              case 1:
+                _scrollToSection(_aboutKey);
+              case 2:
+                _scrollToSection(_projectKey);
+              case 3:
+                _scrollToSection(_contactKey);
+            }
           },
           style: OutlinedButton.styleFrom(
               side: BorderSide(
-            color: isHovered || activeIndex == index ? AppColors.darkYellow : AppColors.transparent,
+            color: isHovered || appProvider.activeIndex == index ? AppColors.darkYellow : AppColors.transparent,
           )),
           child: Text(
             title,
@@ -274,6 +268,7 @@ class MainAppState extends BaseState<MainApp> with BasicPage {
     int index, {
     bool? isLastMenu = false,
   }) {
+    final appProvider = Provider.of<AppProvider>(context);
     return ListTile(
       tileColor: AppColors.black,
       shape: isLastMenu!
@@ -281,25 +276,23 @@ class MainAppState extends BaseState<MainApp> with BasicPage {
           : null,
       title: OutlinedButton(
         onPressed: () {
-          setState(() {
-            activeIndex = index;
-            Navigator.pop(context);
+          appProvider.setActiveIndex(index);
+          Navigator.pop(context);
 
-            switch (activeIndex) {
-              case 0:
-                _scrollToSection(_homeKey);
-              case 1:
-                _scrollToSection(_aboutKey);
-              case 2:
-                _scrollToSection(_projectKey);
-              case 3:
-                _scrollToSection(_contactKey);
-            }
-          });
+          switch (appProvider.activeIndex) {
+            case 0:
+              _scrollToSection(_homeKey);
+            case 1:
+              _scrollToSection(_aboutKey);
+            case 2:
+              _scrollToSection(_projectKey);
+            case 3:
+              _scrollToSection(_contactKey);
+          }
         },
         style: OutlinedButton.styleFrom(
             side: BorderSide(
-          color: activeIndex == index ? AppColors.darkYellow : AppColors.transparent,
+          color: appProvider.activeIndex == index ? AppColors.darkYellow : AppColors.transparent,
         )),
         child: Text(
           title,

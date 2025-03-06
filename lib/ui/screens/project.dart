@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:portfolio/common/utils/index.dart';
+import 'package:portfolio/provider/index.dart';
 import 'package:portfolio/ui/widgets/index.dart';
 import 'package:portfolio/common/styles/index.dart';
 
@@ -20,7 +22,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
       'projectDescription':
           'Developed a responsive portfolio website using Flutter, showcasing projects and skills with an interactive UI. Ensured seamless performance across devices with adaptive layouts for both mobile and desktop views.',
       'projectSkills': 'Flutter, Dart, UI/UX, OOPs',
-      'projectLink': '',
+      'projectLink': 'https://github.com/pavan0209/portfolio',
       'project_gallery': [
         AppImageAssets.portfolioHome,
         AppImageAssets.portfolioAbout,
@@ -120,7 +122,8 @@ class _ProjectsSectionState extends State<ProjectsSection> {
   }
 
   Widget _buildGridItem(bool isSmallScreen, Map<String, dynamic> project) {
-    bool isHovered = hoveredCardIndex == project['projectId'];
+    final projectProvider = Provider.of<ProjectProvider>(context);
+    bool isHovered = projectProvider.hoveredCardIndex == project['projectId'];
 
     return GestureDetector(
       onTap: () {
@@ -135,25 +138,17 @@ class _ProjectsSectionState extends State<ProjectsSection> {
         );
       },
       onLongPress: () {
-        setState(() {
-          hoveredCardIndex = project['projectId'];
-        });
+        projectProvider.setHoveredCardIndex(project['projectId']);
       },
       onLongPressCancel: () {
-        setState(() {
-          hoveredCardIndex = null;
-        });
+        projectProvider.setHoveredCardIndex(-1);
       },
       child: MouseRegion(
         onEnter: (event) {
-          setState(() {
-            hoveredCardIndex = project['projectId'];
-          });
+          projectProvider.setHoveredCardIndex(project['projectId']);
         },
         onExit: (event) {
-          setState(() {
-            hoveredCardIndex = null;
-          });
+          projectProvider.setHoveredCardIndex(-1);
         },
         cursor: SystemMouseCursors.click,
         child: AnimatedContainer(
@@ -187,17 +182,10 @@ class _ProjectsSectionState extends State<ProjectsSection> {
                         size: 50,
                         color: AppColors.white,
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: AppColors.darkGrey,
-                        ),
-                        padding: const EdgeInsets.all(AppPadding.smallPadding),
-                        child: Icon(
-                          Icons.open_in_new,
-                          size: 26,
-                          color: AppColors.darkYellow,
-                        ),
+                      IconButton(
+                        onPressed: () => Services.launchURL(project['projectLink']),
+                        icon: Icon(Icons.open_in_new, size: 26, color: AppColors.darkYellow),
+                        style: IconButton.styleFrom(backgroundColor: AppColors.darkGrey),
                       ),
                     ],
                   ),
@@ -205,6 +193,8 @@ class _ProjectsSectionState extends State<ProjectsSection> {
                   Text(
                     project['projectName'],
                     style: AppStyles.whiteTextLargeSemiBold(),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: AppSpacing.defaultSpacing),
                   Text(
