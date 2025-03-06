@@ -10,8 +10,8 @@ Welcome to my personal portfolio! 🎉 I’ve built this portfolio using **Flutt
 - **Projects**: Dive into my work and explore my most exciting projects.
 - **Gallery**: Browse a collection of my best project visuals.
 - **Contact Me**: Reach out through a simple form!
-<br>
-<br>
+<br><br>
+
 ## 💡 Technologies
 
 - **Flutter** 
@@ -19,14 +19,12 @@ Welcome to my personal portfolio! 🎉 I’ve built this portfolio using **Flutt
 - **Provider** (for state management)
 - **Email JS API** (for contact form submission)
 - **GitHub** for storage
-<br>
-<br>
+<br><br>
 
 ## 📞 Get in Touch
 
 Want to connect? Visit the **Contact Me** page, or ✉️ email me directly at: [pavanasonawane@gmail.com].
-<br>
-<br>
+<br><br>
 
 ## 🛠️ Setup
 
