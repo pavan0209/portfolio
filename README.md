@@ -1,10 +1,6 @@
-<div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e1e4e8; padding-bottom: 8px; margin-bottom: 16px;">
-  <span style="font-size: 24px; font-weight: bold;">💼 My Portfolio</span>
-  <a href="https://pavan0209.github.io/portfolio/" target="_blank" style="display: inline-flex; align-items: center; font-size: 16px; padding: 4px 16px; border: 2px solid #FFD700; color: #000000; border-radius: 20px; text-decoration: none; font-weight: 500;">
-    Visit Portfolio
-    <span style="margin-left: 8px;">🔗</span> <!-- External link icon -->
-  </a>
-</div>
+## 💼 My Portfolio
+🔗 [Visit Portfolio](https://pavan0209.github.io/portfolio/) 
+
 
 Welcome to my personal portfolio! 🎉 I’ve built this portfolio using **Flutter** to showcase my skills, projects, and passion for mobile development.  Whether you’re here to explore my work, collaborate on exciting projects, or just connect 🔗, I’m thrilled to have you visit! Let’s make something amazing together. 😊
 <br><br>
