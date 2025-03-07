@@ -91,7 +91,11 @@ class MainAppState extends BaseState<MainApp> with BasicPage {
               key: _homeKey,
               margin: EdgeInsets.only(top: isSmallScreen ? AppPadding.standardPadding / 2 : 0),
               padding: const EdgeInsets.symmetric(horizontal: AppPadding.defaultPadding),
-              height: isSmallScreen ? screenHeight : screenHeight - 80,
+              height: isSmallScreen
+                  ? screenHeight < 800
+                      ? 800
+                      : screenHeight
+                  : screenHeight - 80,
               child: const Center(
                 child: HomeSection(),
               ),
@@ -153,10 +157,13 @@ class MainAppState extends BaseState<MainApp> with BasicPage {
     return AppBar(
       title: Padding(
         padding: EdgeInsets.only(left: MediaQuery.of(context).size.width <= 800 ? 0 : 200),
-        child: Image.asset(
-          AppImageAssets.appLogo,
-          height: iconSize,
-          width: iconSize,
+        child: IconButton(
+          onPressed: () => _scrollToSection(_homeKey),
+          icon: Image.asset(
+            AppImageAssets.appLogo,
+            height: iconSize,
+            width: iconSize,
+          ),
         ),
       ),
       actions: [
