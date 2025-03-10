@@ -101,7 +101,6 @@ class MainAppState extends BaseState<MainApp> with BasicPage {
               ),
             ),
             const SizedBox(height: AppSpacing.extraSpacing),
-            if (screenHeight < 600) const SizedBox(height: AppSpacing.extraSpacing),
 
             // About Me Section
             Wrap(
@@ -155,6 +154,9 @@ class MainAppState extends BaseState<MainApp> with BasicPage {
   PreferredSizeWidget getAppBar(BuildContext context) {
     double iconSize = MediaQuery.of(context).size.width <= 600 ? 40 : 50;
     return AppBar(
+      toolbarHeight: 70,
+      scrolledUnderElevation: 0,
+      elevation: 0,
       title: Padding(
         padding: EdgeInsets.only(left: MediaQuery.of(context).size.width <= 800 ? 0 : 200),
         child: IconButton(

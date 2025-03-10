@@ -38,13 +38,14 @@ class _AboutSectionState extends State<AboutSection> with SingleTickerProviderSt
           'About Me',
           style: AppStyles.whiteHeadLineLargeSemiBold(),
         ),
-        const SizedBox(height: AppSpacing.extraSpacing),
+        const SizedBox(height: AppSpacing.defaultSpacing),
         Container(
           constraints: const BoxConstraints(maxWidth: 600, minWidth: 250),
           child: Text(
-            'I am a software engineer with a passion for developing mobile applications using Flutter. I have experience in various programming languages such as Dart, Java, and Python. I am currently working on a cross-platform mobile application for the Client.',
+            'I’m a Software developer with 1+ year of experience in building mobile applications using Flutter and Dart. With a strong foundation in Java, Python, and C programming, I’m passionate about continuous learning, self development and developing high-quality apps that solve real-world problems.',
             style: AppStyles.greyTitleSmall(),
             softWrap: true,
+            textAlign: TextAlign.justify,
           ),
         ),
         const SizedBox(height: AppSpacing.defaultSpacing),

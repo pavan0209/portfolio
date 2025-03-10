@@ -143,7 +143,7 @@ class _HomeSectionState extends State<HomeSection> with SingleTickerProviderStat
             Container(
               constraints: const BoxConstraints(maxWidth: 460, minWidth: 250),
               child: Text(
-                'Passionate software developer with 8+ months of hands-on experience building dynamic mobile applications.',
+                'Passionate software developer with 1+ years of hands-on experience in building dynamic mobile applications.',
                 style: AppStyles.lightGreyText(),
               ),
             ),

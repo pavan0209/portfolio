@@ -56,7 +56,7 @@ class _ContactSectionState extends State<ContactSection> {
               ),
               const SizedBox(height: AppSpacing.defaultSpacing),
               TextButton.icon(
-                onPressed: () => Services.makePhoneCall('918830182149'),
+                onPressed: () {},
                 icon: Icon(Icons.location_on_outlined, color: AppColors.darkYellow),
                 label: Text('Pune, Maharashtra, India', style: AppStyles.whiteText()),
               ),
@@ -173,8 +173,6 @@ class _ContactSectionState extends State<ContactSection> {
     return GestureDetector(
       onTap: () => Services.launchURL(url),
       child: MouseRegion(
-        onEnter: (event) => setState(() {}),
-        onExit: (event) => setState(() {}),
         cursor: SystemMouseCursors.click,
         child: Container(
           height: 50,
