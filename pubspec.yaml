@@ -34,6 +34,7 @@ flutter:
     - assets/images/expense_manager/
     - assets/images/bikers_hub/
     - assets/images/newsflash/
+    - assets/resume.pdf
 
   fonts:
     - family: Poppins

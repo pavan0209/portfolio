@@ -1,8 +1,18 @@
 import 'dart:convert';
+import 'dart:html' as html;
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 
 class Services {
+
+  // Function to download resume
+  static void downloadFile() {
+    const url = 'assets/resume.pdf';
+    html.AnchorElement(href: url)
+      ..setAttribute('download', 'Pavan_Sonawane_8830182149_Resume.pdf')
+      ..click();
+  }
+
   // Function to open the URL's
   static Future<void> launchURL(strUrl) async {
     var url = Uri.parse(strUrl);

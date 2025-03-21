@@ -72,9 +72,7 @@ class _ContactSectionState extends State<ContactSection> {
               ),
               const SizedBox(height: AppSpacing.extraSpacing),
               ElevatedButton(
-                onPressed: () {
-                  // FileServices.downloadFile();
-                },
+                onPressed: () => Services.downloadFile(),
                 child: Text(
                   'Download CV',
                   style: AppStyles.whiteText(),
